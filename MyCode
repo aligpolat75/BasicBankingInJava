@@ -1,0 +1,118 @@
+
+package javalast;
+
+import java.util.Scanner;
+
+
+public class JavaLast {
+
+    
+    public static void main(String[] args) {
+        //Banking System!
+
+        Konto k100 = new Konto();
+        k100.KundenName = "Ali Polat";
+        k100.Balance = 4000;
+
+        Konto k101 = new Konto();
+        k101.KundenName = "Hansel Gratel";
+        k101.Balance = 5000;
+
+        Scanner scan = new Scanner(System.in);
+        int Wahl=0;
+        System.out.println("Willkommen in ArdahanBank");
+        System.out.println("Geben Sie Ihre Kundennummer ein.");
+        String Benutzer = scan.nextLine();
+        if ("k100".equals(Benutzer)) {
+            System.out.println("Willkommen Ihre Konto " + k100.KundenName);
+            
+           while( Wahl!=4 ){
+            
+            System.out.println("Bitte wählen Sie die Aktion, die Sie ausführen möchten");
+            System.out.println("1.Bilanzanzeige");
+            System.out.println("2.Einzahlung");
+            System.out.println("3.Auszahlung");
+            System.out.println("4.Exit");
+
+            Wahl = scan.nextInt();
+
+            switch (Wahl) {
+
+                case 1:
+                    System.out.println("KontoBalance: " + k100.Balance);
+                    break;
+
+                case 2: {
+                    System.out.println("Wie viel Geld möchten sie einzahlen?");
+                    k100.Transaktionsvolumen = scan.nextInt();
+                    k100.Einzahlung();
+                    System.out.println("Ihre neue Balance:" + k100.Balance);
+                    break;
+                }
+                case 3: {
+                    System.out.println("Wie viel Geld möchten sie auszahlen?");
+                    k100.Transaktionsvolumen = scan.nextInt();
+                    k100.Auszahlung();
+                    System.out.println("Ihre neue Balance:" + k100.Balance);
+                    break;
+                }
+                case 4: 
+                    System.out.println("Tschüss "+k100.KundenName);
+                    break;
+            }
+           }
+        } else if ("k101".equals(Benutzer)) {
+            System.out.println("Willkommen Ihre Konto " + k101.KundenName);
+            while( Wahl!=4 ){
+            
+            System.out.println("Bitte wählen Sie die Aktion, die Sie ausführen möchten");
+            System.out.println("1.Bilanzanzeige");
+            System.out.println("2.Einzahlung");
+            System.out.println("3.Auszahlung");
+            System.out.println("4.Exit");
+
+            Wahl = scan.nextInt();
+
+            switch (Wahl) {
+
+                case 1:
+                    System.out.println("KontoBalance: " + k101.Balance);
+                    break;
+
+                case 2: {
+                    System.out.println("Wie viel Geld möchten sie einzahlen?");
+                    k101.Transaktionsvolumen = scan.nextInt();
+                    k101.Einzahlung();
+                    System.out.println("Ihre neue Balance:" + k101.Balance);
+                    break;
+                }
+                case 3: {
+                    System.out.println("Wie viel Geld möchten sie auszahlen?");
+                    k101.Transaktionsvolumen = scan.nextInt();
+                    k101.Auszahlung();
+                    System.out.println("Ihre neue Balance:" + k101.Balance);
+                    break;
+                }
+                case 4: 
+                    System.out.println("Tschüss "+k101.KundenName);
+                    break;
+            }
+           }
+        }
+
+    }
+
+    
+}
+
+public class Konto {
+    
+    String KundenName;
+    int Balance;
+    int Transaktionsvolumen;
+    public int Einzahlung(){
+    return Balance=Balance+Transaktionsvolumen;
+    }
+    public int Auszahlung(){
+    return Balance=Balance-Transaktionsvolumen;
+    }
